@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/{post}',[PostController::class, 'show']);
+Route::get('/about', function () {
+    return view('about');
+});
+
