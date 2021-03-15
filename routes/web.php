@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,11 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'articles' => App\Models\Article::take(3)->latest()->get()
+    ]);
 });
+
+Route::get('/articles', [ArticlesController::class, 'index']);
+Route::get('/articles/{article}', [ArticlesController::class, 'show']);
 
