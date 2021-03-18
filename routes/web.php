@@ -25,5 +25,10 @@ Route::get('/about', function () {
 });
 
 Route::get('/articles', [ArticlesController::class, 'index']);
+Route::get('/articles/create', [ArticlesController::class, 'create']);
 Route::get('/articles/{article}', [ArticlesController::class, 'show']);
+Route::get('/articles/{article}/edit', [ArticlesController::class, 'edit']);
+Route::get('/articles/{article}', [ArticlesController::class, 'update']);
+
+
 
